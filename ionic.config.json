@@ -1,0 +1,7 @@
+{
+  "name": "EasyExpensesTracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

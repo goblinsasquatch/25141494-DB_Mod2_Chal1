@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Expense</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Type of Expense</ion-label>
+            <ion-select
+              placeholder="Select your expense"
+              required
+              ngModel
+              name="type"
+            >
+              <ion-select-option value="Food">Food</ion-select-option>
+              <ion-select-option value="Fuel">Fuel</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Place</ion-label>
+            <ion-input
+              type="text"
+              ngModel
+              name="place"
+              required
+              placeholder="Where was this expense?"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Amount to claim</ion-label>
+            <ion-input type="number" required ngModel name="amount"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3" class="ion-text-center ion-margin">
+          <div>
+            <ion-button (click)="onScanReceipt()">
+              <ion-icon slot="start" name="camera-outline"></ion-icon>Scan
+              receipt
+            </ion-button>
+          </div>
+          <div>
+            <p>Display timestamp of image</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3" class="ion-margin">
+          <ion-button
+            class="ion-margin"
+            expand="block"
+            type="submit"
+            [disabled]="!f.valid"
+            color="primary"
+            >Log Expense
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

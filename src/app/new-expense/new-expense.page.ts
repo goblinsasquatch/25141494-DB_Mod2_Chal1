@@ -19,8 +19,8 @@ export class NewExpensePage implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log(this.form.value);
     const newExp: Expense = {
+      id: Math.random().toString(),
       type: this.form.value.type,
       place: this.form.value.place,
       amount: this.form.value.amount,
@@ -28,10 +28,13 @@ export class NewExpensePage implements OnInit {
         'https://upload.wikimedia.org/wikipedia/commons/0/0b/ReceiptSwiss.jpg',
       timestamp: new Date(),
     };
+    console.log(newExp);
     this.expensesService.addExpense(newExp);
     this.form.reset();
     this.navCtrl.navigateBack('home');
   }
 
-  onScanReceipt() {}
+  onScanReceipt() {
+    console.log('scan receipt clicked');
+  }
 }

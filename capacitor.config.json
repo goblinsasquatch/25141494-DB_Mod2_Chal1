@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "EasyExpensesTracker",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "com.ionic.EasyExpenses",
+  "appName": "EasyExpenses",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

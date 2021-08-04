@@ -5,9 +5,10 @@ import { Expense } from './expense.model';
   providedIn: 'root',
 })
 export class ExpensesService {
-  sum: number;
+  sum: string;
   expenses: Expense[] = [
     {
+      id: 'randId1',
       type: 'Food',
       place: 'Burger King',
       amount: 120.99,
@@ -16,6 +17,7 @@ export class ExpensesService {
       timestamp: new Date(),
     },
     {
+      id: 'randId2',
       type: 'Fuel',
       place: 'Esso',
       amount: 32.45,
@@ -28,12 +30,24 @@ export class ExpensesService {
 
   addExpense(newExpense: Expense) {
     this.expenses.push(newExpense);
-    console.log(this.expenses);
   }
 
   sumClaims() {
-    this.sum = this.expenses.reduce((accum, curr) => accum + curr.amount, 0);
+    this.sum = this.expenses
+      .reduce((accum, curr) => accum + curr.amount, 0)
+      .toFixed(2);
+    return this.sum;
   }
 
-  removeExpense() {}
+  getExpense(expId: string) {
+    const tempExp = this.expenses.find((expense) => {
+      return expense.id === expId;
+    });
+    console.log(tempExp);
+    return tempExp;
+  }
+
+  removeExpense(expId: string) {
+    this.expenses = this.expenses.filter((exp) => exp.id != expId);
+  }
 }

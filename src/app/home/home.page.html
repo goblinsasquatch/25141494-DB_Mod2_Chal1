@@ -29,7 +29,11 @@
     <ion-row>
       <ion-col sizeMd="8" offsetMd="2">
         <ion-list>
-          <ion-item detail *ngFor="let expense of expensesList">
+          <ion-item
+            detail
+            *ngFor="let expense of expensesList"
+            [routerLink]='["/expense-detail", expense.id]'
+          >
             <ion-thumbnail>
               <img [src]="expense.imageUrl" />
             </ion-thumbnail>

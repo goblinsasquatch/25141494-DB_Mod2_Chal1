@@ -13,8 +13,8 @@ import { NewExpensePage } from './new-expense.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    NewExpensePageRoutingModule
+    NewExpensePageRoutingModule,
   ],
-  declarations: [NewExpensePage]
+  declarations: [NewExpensePage],
 })
 export class NewExpensePageModule {}

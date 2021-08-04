@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">EasyExpensesTracker</string>
-    <string name="title_activity_main">EasyExpensesTracker</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">EasyExpenses</string>
+    <string name="title_activity_main">EasyExpenses</string>
+    <string name="package_name">com.ionic.EasyExpenses</string>
+    <string name="custom_url_scheme">com.ionic.EasyExpenses</string>
 </resources>

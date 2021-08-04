@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button (click)="onClose()"
+        ><ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+    <ion-title>Instructions for use</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col sizeSm="8" offsetSm="2">
+        <h3>1. Total amount to be claimed is displayed automatically.</h3>
+        <hr />
+        <h3>2. Tap + to add a new receipt</h3>
+        <p>Select type of claim.</p>
+        <p>Insert location of claim.</p>
+        <p>Insert amount to be claimed from this receipt.</p>
+        <p>Scan receipt, or rescan if required.</p>
+        <p>Tap log expense.</p>
+        <p>All fields are required.</p>
+
+        <h3>3. Tap a claim to see complete details.</h3>
+        <p>Tap "Delete Expense" if required.</p>
+        <hr />
+        <hr />
+        <h5>
+          Known issues: Data does not save to device storage. If the app is
+          closed all expenses will be lost.
+        </h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

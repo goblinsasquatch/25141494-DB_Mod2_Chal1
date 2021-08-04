@@ -48,14 +48,21 @@
       </ion-row>
       <ion-row>
         <ion-col sizeSm="6" offsetSm="3" class="ion-text-center ion-margin">
-          <div>
-            <ion-button (click)="onScanReceipt()">
-              <ion-icon slot="start" name="camera-outline"></ion-icon>Scan
-              receipt
-            </ion-button>
+          <div *ngIf="capturedImage">
+            <img [src]="capturedImage" alt="No image captured yet" />
+            <p>
+              Image timestamp:
+              <span
+                >{{ capturedImageTimestamp | date: 'dd MMM yyyy HH:mm:ss'
+                }}</span
+              >
+            </p>
           </div>
           <div>
-            <p>Display timestamp of image</p>
+            <ion-button (click)="onScanReceipt()">
+              <ion-icon slot="start" name="camera-outline"></ion-icon>{{
+              capturedImage ? "Rescan Receipt" : "Scan Receipt"}}
+            </ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -65,7 +72,7 @@
             class="ion-margin"
             expand="block"
             type="submit"
-            [disabled]="!f.valid"
+            [disabled]="!f.valid || !capturedImage"
             color="primary"
             >Log Expense
           </ion-button>

@@ -28,7 +28,13 @@
     </ion-row>
     <ion-row>
       <ion-col sizeMd="8" offsetMd="2">
-        <ion-list>
+        <div
+          *ngIf="!expensesList || expensesList.length == 0"
+          class="ion-text-center"
+        >
+          <ion-text> <h2>Please add a receipt</h2></ion-text>
+        </div>
+        <ion-list *ngIf="expensesList">
           <ion-item
             detail
             *ngFor="let expense of expensesList"

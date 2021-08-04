@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { Expense } from '../expense.model';
 import { ExpensesService } from '../expenses.service';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private expensesService: ExpensesService,
-    private alertCtrl: AlertController
+    private modalCtrl: ModalController
   ) {}
 
   ngOnInit() {}
@@ -22,8 +23,16 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     this.displaySum = this.expensesService.sumClaims();
     console.log('Current array of Expenses', this.expensesService.expenses);
-    this.expensesList = this.expensesService.expenses;
+    if (this.expensesService.expenses) {
+      this.expensesList = this.expensesService.expenses;
+    }
   }
 
-  onHelp() {}
+  onHelp() {
+    this.modalCtrl
+      .create({ component: InstructionsComponent })
+      .then((modalEl) => {
+        modalEl.present();
+      });
+  }
 }
